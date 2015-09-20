@@ -1,0 +1,58 @@
+body {
+	background-color: #F0F8FF;   
+}
+
+h1 {
+	color: #779BA9;
+	text-align: center;
+	font-size: 60px;
+	font-family: verdana;
+}
+
+.add {
+	height: 40px;
+	width: 150px;
+	border-radius: 10px;
+	background-color: #D1D0CE;
+	color: white;
+	font-size: 16px;
+	font-family: verdana;
+	font-weight: bold;
+	border: 1px solid #657383;
+	margin: auto;
+	line-height: 40px;
+	vertical-align: middle;
+	text-align: center;
+	position: relative;
+}
+
+.hideit {
+	visibility: hidden;
+}
+
+.addquote {
+	height: 200px;
+	width: 400px;
+	border-radius: 10px;
+	background-color: #D1D0CE;
+	color: white;
+	font-size: 16px;
+	font-family: verdana;
+	font-weight: bold;
+	border: 1px solid #657383;
+	margin: auto;
+	line-height: 40px;
+	vertical-align: middle;
+	text-align: center;
+	margin: auto;
+	top: 25px;
+	position: relative;
+	visibility: visible;
+}
+
+.redex {
+	float: right;
+	color: red;
+	padding-right: 10px;
+	top: 10px;
+}
