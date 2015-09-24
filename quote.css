@@ -56,3 +56,80 @@ h1 {
 	padding-right: 10px;
 	top: 10px;
 }
+
+.star5 {
+   display: inline-block;
+   width: 20px; 
+   height: 20px; 
+   background: #008080
+;
+   margin: 3px 0 0 30px;
+   border: 1px solid #657383;
+   /* Rotate */
+   -webkit-transform: rotate(-45deg);
+   -moz-transform: rotate(-45deg);
+   -ms-transform: rotate(-45deg);
+   -o-transform: rotate(-45deg);
+   transform: rotate(-45deg);
+   /* Rotate Origin */
+   -webkit-transform-origin: 0 100%;
+   -moz-transform-origin: 0 100%;
+   -ms-transform-origin: 0 100%;
+   -o-transform-origin: 0 100%;
+   transform-origin: 0 100%;
+}
+
+.quotes .again {
+	display: inline-block;
+	color: #657383;
+	font-size: 26px;
+
+}
+
+.quotes {
+	display: inline-block;
+	color: #657383;
+	font-size: 12px;
+
+}
+
+.outerdiv {
+	margin: auto;
+	text-align: center;
+}
+
+.star {
+   display: inline-block;
+   width: 50px; 
+   height: 50px; 
+   color: #008080;
+   font-size: 30px;
+
+}
+
+.backlight {
+	visibility: visible;
+	position: fixed;
+	background-color: rgba(128, 158, 155, 0.8);
+	top: 0;
+	left: 0;
+	height: 100vw;
+	width: 100vw;
+	z-index: 5;
+}
+
+.frontlight {
+	visibility: visible;
+	position: relative;
+	background-color: rgba(149, 213, 216, 1);
+	border: 1px solid #657383;
+	border-radius: 10px;
+	margin: auto;
+	height: 15vw;
+	width: 25vw;
+	z-index: 6;
+	top: 10%;
+}
+
+
+

@@ -9,15 +9,28 @@
 <h1>Quotes.</h1>
 
 
-<div class="add" ng-click="addQuote()">Add a Quote</div>
+<div class="add" ng-click="addQuote()">Add a Quote</div><div class="add" ng-click="randomQuote()">Get a Random Quote</div>
 	<div class="hideit" ng-class="addquote">Quote: <input type="text" ng-model="quotes.quote"><br>Author:<input type="text" ng-model="quotes.author">
 		<div class="redex" ng-click="closeQuote()">x</div>
 		 <input ng-click="Submit()" type="submit" value="Add the Quote">
     </div>
+    <div class="hideit" ng-class="backlight">
+    	<div class="hideit" ng-class="frontlight"></div>
+    </div>
 
 
-<div ng-repeat="key in quotes">
-	<div>{{ key.quote }}<br>{{ key.author }}</div></div>
+
+<div ng-repeat="key in quotes | filter: authorz" class="outerdiv">
+	<div class="quotes again">{{ key.quote }}</div><br>
+	<br><div ng-click="Auth($index)" class="quotes">by {{ key.author }}</div>
+		<div ng-click="Star1($index)" class="star">&#9733;</div>
+		<div ng-click="Star2($index)" class="star">&#9733;</div>
+		<div ng-click="Star3($index)" class="star">&#9733;</div>
+		<div ng-click="Star4($index)" class="star">&#9733;</div>
+		<div ng-click="Star5($index)" class="star">&#9733;</div>
+		<div ng-click="Delete($index)" class="star"><button>Delete Quote</button></div>
+		<div ng-click="All()" class="star"><button>Show All Quotes</button></div><br><br>
+</div>
 
 </body>
 </html>
