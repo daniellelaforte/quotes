@@ -2,6 +2,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="quote.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js></script>
 	<script src="quote.js"></script>
 	<title></title>
 </head>
@@ -9,13 +10,17 @@
 <h1>Quotes.</h1>
 
 
-<div class="add" ng-click="addQuote()">Add a Quote</div><div class="add" ng-click="randomQuote()">Get a Random Quote</div>
+<div class="add" ng-click="addQuote()">Add a Quote</div><div class="add" ng-click="randomQuote()">Random Quote</div><div class="add" ng-click="All()">Show All</div><div class="add" ng-click="undo()">Undo</div>
 	<div class="hideit" ng-class="addquote">Quote: <input type="text" ng-model="quotes.quote"><br>Author:<input type="text" ng-model="quotes.author">
 		<div class="redex" ng-click="closeQuote()">x</div>
 		 <input ng-click="Submit()" type="submit" value="Add the Quote">
     </div>
     <div class="hideit" ng-class="backlight">
-    	<div class="hideit" ng-class="frontlight"></div>
+    	<div class="hideit" ng-class="frontlight">
+    	{{ random }}
+    		<div ng-click="removeRandom()" class="littlex">x</div>
+
+    	</div>
     </div>
 
 
@@ -28,8 +33,10 @@
 		<div ng-click="Star3($index)" class="star">&#9733;</div>
 		<div ng-click="Star4($index)" class="star">&#9733;</div>
 		<div ng-click="Star5($index)" class="star">&#9733;</div>
-		<div ng-click="Delete($index)" class="star"><button>Delete Quote</button></div>
-		<div ng-click="All()" class="star"><button>Show All Quotes</button></div><br><br>
+		<div> Rating: {{ key.avgrating }} </div>
+		<div ng-click="Delete($index)" class="star"><button>Delete</button></div>
+
+		<br><br>
 </div>
 
 </body>

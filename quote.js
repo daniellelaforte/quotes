@@ -4,8 +4,9 @@ angular.module("bear", []);
 
 angular.module("bear").controller("polarbearcontroller", ["$scope", function($scope){
 	$scope.quotes = [];
+    $scope.whatWasDeleted = {};
 
-    var array1 = [{quote: "The greatness of a nation and its moral progress can be judged by the way its animals are treated.", author: "Mahatma Ghandi", rating: [], avgrating: 0}, {quote: "Life's Most Persistent Question Is: What Are You Doing For Others.", author: "Martin Luther King, Jr.", rating: [], avgrating: 0}]
+    var array1 = [{quote: "The greatness of a nation and its moral progress can be judged by the way its animals are treated.", author: "Mahatma Ghandi", rating: [], avgrating: 0}, {quote: "Life's Most Persistent Question Is: What Are You Doing For Others?", author: "Martin Luther King, Jr.", rating: [], avgrating: 0.1}]
     var beforearray;
     var afterarray;
 	localStorage.setItem(beforearray, JSON.stringify(array1));
@@ -21,8 +22,45 @@ angular.module("bear").controller("polarbearcontroller", ["$scope", function($sc
     }
     $scope.randomQuote = function() {
         $scope.backlight = "backlight"; 
-        $scope.frontlight = "frontlight";                 
+        $scope.frontlight = "frontlight";  
+        var randomindex = Math.floor(Math.random()*$scope.quotes.length)
+        $scope.random = $scope.quotes[randomindex].quote + "by "+ $scope.quotes[randomindex].author; 
 
+
+    }
+
+    $scope.removeRandom = function() {
+        $scope.backlight = "nothing"; 
+        $scope.frontlight = "nothing";                 
+
+    }
+
+    $scope.undo = function() {
+        $scope.backlight = "nothing"; 
+        $scope.frontlight = "nothing"; 
+
+        if (_.isEmpty($scope.whatWasDeleted)){
+            
+        }
+
+        else {
+                //$scope.quotes.push($scope.whatWasDeleted)
+                $scope.quotes.splice($scope.keeptrackofindex, 0, $scope.whatWasDeleted); 
+                $scope.quotes.sort(function(argA, argB){
+
+            if ( argA.avgrating > argB.avgrating ) {
+         // if a sort function returns a positive number, then argA should be sorted before argB
+                return 1
+                }
+            else if ( argA.avgrating < argB.avgrating ) {
+                return -1
+            }
+            else if ( argA.avgrating === argB.avgrating ) {
+                return 0
+            }
+        })  
+          $scope.whatWasDeleted = {}         
+            }
     }
    
 
@@ -44,6 +82,19 @@ angular.module("bear").controller("polarbearcontroller", ["$scope", function($sc
     $scope.Submit = function() {
 		$scope.quotes.push({quote: $scope.quotes.quote, author: $scope.quotes.author, rating: [], avgrating: 0}); 
 		$scope.addquote = "nothing";
+         $scope.quotes.sort(function(argA, argB){
+
+            if ( argA.avgrating > argB.avgrating ) {
+         // if a sort function returns a positive number, then argA should be sorted before argB
+                return 1
+                }
+            else if ( argA.avgrating < argB.avgrating ) {
+                return -1
+            }
+            else if ( argA.avgrating === argB.avgrating ) {
+                return 0
+            }
+        })  
         console.log($scope.quotes)
 
     }
@@ -170,7 +221,12 @@ angular.module("bear").controller("polarbearcontroller", ["$scope", function($sc
     }
 
   $scope.Delete = function(index) {
+     $scope.whatWasDeleted = $scope.quotes[index];
+     $scope.keeptrackofindex = index;
       $scope.quotes.splice(index, 1)
+      console.log($scope.whatWasDeleted)
+      
+      
                       
     }
 

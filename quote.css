@@ -129,7 +129,12 @@ h1 {
 	width: 25vw;
 	z-index: 6;
 	top: 10%;
+	color: black;
 }
 
-
+.littlex {
+	float: right;
+	margin-right: 10px;
+	margin-top: 8px;
+}
 
